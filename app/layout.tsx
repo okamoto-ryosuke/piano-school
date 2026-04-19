@@ -9,6 +9,11 @@ const hinaMincho = Hina_Mincho({
   variable: "--font-hina",
 });
 
+<meta
+  name="google-site-verification"
+  content="tBjJTm8uiZp_0QSigi2_r6LvlwF5ZtB7u1FKKmCfDFg"
+/>;
+
 export const metadata: Metadata = {
   title: "jouer*musique",
   description: "ピアノ教室のサイト",
