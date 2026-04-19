@@ -1,0 +1,41 @@
+// Prisma 7対応のスキーマファイル
+// datasource db から url を削除し、ランタイムアダプターを使用する構成
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  // Prisma 7では driverAdapters を使う場合、ここには url を書かずに
+  // インスタンス化の際に adapter を渡すのが推奨されます。
+}
+
+model Lesson {
+  id            Int       @id @default(autoincrement())
+  
+  // レッスン枠の情報
+  lessonDate    DateTime  @map("lesson_date") @db.Date
+  startTime     DateTime  @map("start_time") @db.Time(6)
+  endTime       DateTime  @map("end_time") @db.Time(6)
+
+  // 予約者情報
+  studentName   String?   @map("student_name")
+  phone         String?   @map("phone")
+  preferredTime String?   @map("preferred_time")
+  
+  // 管理用
+  createdAt     DateTime? @default(now()) @map("created_at") @db.Timestamp(6)
+
+  @@index([lessonDate], map: "idx_lesson_date")
+  @@map("lessons")
+}
+
+model Image {
+  id        Int      @id @default(autoincrement())
+  url       String   // CloudinaryのURL
+  title     String?  // 「トップ背景」「教室1」などのメモ用
+  
+  @@map("images")
+}

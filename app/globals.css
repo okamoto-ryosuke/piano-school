@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+:root {
+  /* メインカラー（文字・ボタン） */
+  --brand-color: #794c57;
+  /* ボディ背景色（少し濃いめ） */
+  --bg-main: #ecdce2;
+  /* コンテンツ背景色（フォームやカードの中身用：非常に薄いピンク） */
+  --bg-card: #fdfaf8;
+  /* 透過・ミュートカラー */
+  --brand-muted: rgba(121, 76, 87, 0.1);
+}
+
+html,
+body {
+  background-color: var(--bg-main);
+  color: var(--brand-color);
+  font-family: var(--font-hina), serif;
+}
+
+/* Tailwindクラスとして使いやすく定義 */
+@layer utilities {
+  .text-brand {
+    color: var(--brand-color);
+  }
+  .bg-brand {
+    background-color: var(--brand-color);
+  }
+  .border-brand-muted {
+    border-color: var(--brand-muted);
+  }
+}
