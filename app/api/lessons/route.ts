@@ -27,7 +27,7 @@ export async function GET() {
       orderBy: { lessonDate: "asc" },
     });
 
-    const formattedLessons = lessons.map((lesson) => ({
+    const formattedLessons = lessons.map((lesson: any) => ({
       ...lesson,
       lessonDate: formatDate(lesson.lessonDate),
       startTime: formatTime(lesson.startTime),
