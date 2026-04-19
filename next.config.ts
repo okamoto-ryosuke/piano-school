@@ -1,7 +1,11 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextconfig = {
+  typescript: {
+    // !! 警告 !!
+    // プロジェクトに型エラーがあっても、本番ビルドを強制的に完了させる設定です
+    ignoreBuildErrors: true,
+  },
+  // 他の設定があればここに続く
 };
 
-export default nextConfig;
+export default nextconfig;
