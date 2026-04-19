@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "jouer*musique ピアノ教室",
   description: "ピアノ教室のサイト",
   verification: {
-    google: "tBjJTm8uiZp_0QSigi2_r6LvlwF5ZtB7u1FKKmCfDFg",
+    google: "iIPjYZ2tacvNXxtunswDQkdpwklaGfjzpmflMROW9Z8",
   },
 };
 
