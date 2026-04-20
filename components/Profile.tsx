@@ -23,12 +23,12 @@ export default function ProfileSection({ name, qualifications }: Props) {
               <p className="text-xs font-bold tracking-[0.3em] opacity-50 uppercase">
                 Instructor
               </p>
-              <h3 className="text-2xl md:text-3xl font-bold font-[family-name:var(--font-hina)]">
+              <h3 className="text-3xl md:text-3xl font-bold font-[family-name:var(--font-hina)]">
                 {name}
               </h3>
             </div>
 
-            <ul className="text-left inline-block space-y-4 text-sm md:text-base whitespace-pre-wrap">
+            <ul className="text-left inline-block space-y-4 text-[17px] md:text-[17px] whitespace-pre-wrap">
               {qualifications.map((q, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <span className="mt-1.5 w-1.5 h-1.5 bg-[#794C57]/40 rounded-full flex-shrink-0" />

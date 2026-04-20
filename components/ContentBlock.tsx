@@ -56,7 +56,7 @@ export default function ContentBlock({
           >
             <div className="space-y-4">
               <Label label={label} />
-              <h2 className="text-xl md:text-3xl font-bold font-[family-name:var(--font-hina)] leading-tight text-[#794C57]">
+              <h2 className="text-[26px] md:text-[26px] font-bold font-[family-name:var(--font-hina)] leading-tight text-[#794C57]">
                 {title}
               </h2>
             </div>

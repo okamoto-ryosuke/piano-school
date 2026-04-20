@@ -71,16 +71,13 @@ export default function ReservationPage() {
                     </span>
                     当日の流れ
                   </h3>
-                  <ul className="text-sm space-y-3 text-brand/80 leading-relaxed text-left">
+                  <ul className="text-[16px] md:text-[16px] space-y-3 text-brand/80 leading-relaxed text-left">
                     <li>・お約束の時間にお越しください。</li>
                     <li>
-                      ・実際に楽器に触れたり、レッスンの一部を体験していただきます。
+                      ・実際にエレクトーンやピアノを弾いたり、レッスンの一部を体験していただきます。
                     </li>
-                    <li>・不安なことやご質問など、お気軽にお話しください。</li>
+                    <li>・ご希望やご質問など、お気軽にお話しください。</li>
                   </ul>
-                  <p className="mt-4 text-xs text-brand/60 italic">
-                    ※教室の雰囲気や楽器をご体験ください。
-                  </p>
                 </div>
 
                 {/* 持ち物 */}
@@ -91,23 +88,23 @@ export default function ReservationPage() {
                     </span>
                     持ち物
                   </h3>
-                  <div className="text-sm space-y-4 text-brand/80 leading-relaxed text-left">
+                  <div className="text-[16px] md:text-[16px] space-y-4 text-brand/80 leading-relaxed text-left">
                     <p>
                       基本的に持ち物は不要です。
                       <br />
                       手ぶらでお気軽にお越しください。
                     </p>
-                    <p className="text-base bg-brand/5 p-3 rounded-xl">
+                    <p className="text-[16px] md:text-[16px] bg-brand/5 p-3 rounded-xl">
                       もし「弾きたい曲」の楽譜をお持ちでしたら、ぜひご持参ください♪
                     </p>
                   </div>
                 </div>
               </div>
 
-              <p className="leading-relaxed opacity-80 text-brand">
+              <p className="leading-relaxed opacity-80 text-brand font-bold mb-6">
                 {isLoading
                   ? "予約状況を読み込んでいます..."
-                  : "カレンダーの「○」がついた枠をクリックして予約時間を選択してください。"}
+                  : "カレンダーの「○」がついた枠をクリックして予約時間を選択してください"}
               </p>
             </div>
 
@@ -123,7 +120,7 @@ export default function ReservationPage() {
               />
             </div>
 
-            <div className="flex justify-center gap-8 text-xs font-bold text-brand mt-6">
+            <div className="flex justify-center gap-8 text-[14px] font-bold text-brand mt-6">
               <div className="flex items-center gap-2">
                 <span className="w-4 h-4 flex items-center justify-center rounded-full text-[10px] border border-brand-muted bg-brand/5">
                   ○

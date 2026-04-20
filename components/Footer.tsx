@@ -23,13 +23,15 @@ export default async function Footer() {
     >
       <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
-          {/* 1. ロゴ・コンセプト */}
+          {/*  ロゴ・コンセプト */}
           <div className="space-y-4">
             <h2 className="text-2xl md:text-3xl font-normal tracking-[0.2em] font-[family-name:var(--font-hina)]">
-              jouer*musique
+              エレクトーン・
+              <br />
+              ピアノ教室
             </h2>
-            <p className="text-sm opacity-80 leading-loose">
-              エレクトーン・ピアノ教室
+            <p className="text-[16px] md:text-[16px] opacity-90 leading-loose">
+              jouer*musique
               <br />
               音で遊ぶ、音楽を奏でる、感性を磨く。
             </p>

@@ -79,7 +79,7 @@ export const Calendar = ({
     <div className="flex flex-col gap-4">
       {/* ナビゲーション */}
       <div className="flex justify-end items-center gap-4 px-4 pt-2">
-        <span className="text-sm font-bold text-[#794C57] tracking-widest">
+        <span className="text-base md:text-lg font-bold text-[#794C57] tracking-widest">
           {currentWeekStart.getFullYear()}年 {currentWeekStart.getMonth() + 1}月
         </span>
         <div className="flex gap-1">
@@ -139,10 +139,10 @@ export const Calendar = ({
                 key={date.toString()}
                 className="px-2 border-r border-[#794C57]/10 last:border-r-0"
               >
-                <div className="text-[14px] opacity-100 tracking-wider">
+                <div className="text-[16px] md:text-[18px] opacity-100 tracking-wider">
                   {date.getMonth() + 1}/{date.getDate()}
                 </div>
-                <div className="font-bold text-sm">
+                <div className="font-bold text-base">
                   ({date.toLocaleDateString("ja-JP", { weekday: "short" })})
                 </div>
               </div>
@@ -158,7 +158,7 @@ export const Calendar = ({
                   className="grid grid-cols-[100px_repeat(7,1fr)] relative"
                 >
                   <div className="relative h-0 pointer-events-none">
-                    <span className="absolute -top-[10px] left-0 w-full text-center text-[11px] font-bold text-[#794C57]/80 pr-4">
+                    <span className="absolute -top-[10px] left-0 w-full text-center text-[13px] md:text-[14px] font-bold text-[#794C57]/80 pr-4">
                       {time}
                     </span>
                   </div>
@@ -204,7 +204,7 @@ export const Calendar = ({
                         >
                           {isAvailable && !isSelected && (
                             <div className="absolute inset-0 flex items-center justify-center text-[#794C57] opacity-30">
-                              <span className="text-sm font-bold">○</span>
+                              <span className="text-lg font-bold">○</span>
                             </div>
                           )}
                           {isBooked && (
@@ -219,7 +219,7 @@ export const Calendar = ({
                               }}
                             >
                               {isStart && (
-                                <span className="font-bold text-[10px] text-center tracking-tighter">
+                                <span className="font-bold text-[12px] md:text-[13px] text-center tracking-tighter">
                                   予約済
                                 </span>
                               )}

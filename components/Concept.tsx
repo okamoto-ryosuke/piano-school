@@ -24,7 +24,7 @@ export default function Concept() {
 
         {/* 本文セクション（右側） */}
         <div className="md:col-span-7 text-[#794C57] leading-loose space-y-6 border-l md:pl-10 border-[#794C57]/10">
-          <p>
+          <p className="text-[17px] md:text-[17px] font-normal leading-loose opacity-95">
             大人から子どもまで、一人ひとりの目標や個性を大切にしたレッスンを心がけています。
             子どもの生徒さんは、音楽の基礎を身につけ将来好きな曲を自由に演奏できること、音楽を通して豊かな感性が育まれることを目指しています。
             大人の生徒さんには、新たな趣味として、リフレッシュの時間として通っていただいています。

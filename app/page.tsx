@@ -19,7 +19,7 @@ const COURSES = [
 
 const QUALIFICATIONS = [
   {
-    text: "jet全日本エレクトーン指導者協会会員 /  ヤマハミュージック高松店支部所属 / \n アドバイザリースタッフ",
+    text: "jet全日本エレクトーン指導者協会会員 \n/ ヤマハミュージック高松店支部所属 \n/ アドバイザリースタッフ",
   },
   { text: "中学校教諭二種免許状（音楽）" },
   { text: "音楽療法セミナー受講経験あり" },
@@ -39,18 +39,18 @@ export default async function Home() {
 
   return (
     <main className="flex flex-col min-h-screen bg-[#ecdce2]">
-      {/* 1. ヘッダーナビゲーション */}
+      {/*  ヘッダーナビゲーション */}
       <Header />
 
-      {/* 2. ヒーローセクション */}
+      {/*  ヒーローセクション */}
       <HeroFrame images={heroImages} />
 
-      {/* 3. メインコンテンツ */}
+      {/*  メインコンテンツ */}
       <div className="max-w-4xl mx-auto px-4">
-        {/* 4. コンセプトメッセージ */}
+        {/*  コンセプトメッセージ */}
         <Concept />
 
-        {/* 5. 使用テキストの紹介 */}
+        {/*  使用テキストの紹介 */}
         <ContentBlock
           id="textbook"
           label="Textbooks"
@@ -60,7 +60,7 @@ export default async function Home() {
           imageFallback="No Image (ID:4)"
           imagePosition="left"
         >
-          <p className="text-sm md:text-base font-medium leading-loose opacity-95">
+          <p className="text-[17px] md:text-[17px] font-normal leading-loose opacity-95">
             経験の有無、レベルや目標に合わせて
             <br />
             ご提案しています。
@@ -70,7 +70,7 @@ export default async function Home() {
             「合唱の伴奏がしたい」など大歓迎です♪
           </p>
           <div className="bg-white/30 p-5 rounded-2xl border border-white/20">
-            <p className="text-xs md:text-base leading-loose opacity-95 text-center">
+            <p className="text-[17px] md:text-[17px] leading-loose opacity-95 text-center">
               はじめてのお子さまはjetの教材
               <span className="font-bold text-[#794C57]">
                 <br />
@@ -78,16 +78,12 @@ export default async function Home() {
               </span>
               を使い、
               <br />
-              エレクトーン、ピアノどちらにも
-              <br />
-              進級できるよう、楽しみながら
-              <br />
-              多角的に音楽を学びます。
+              エレクトーン、ピアノどちらにも進級できるよう楽しみながら多角的に音楽を学びます。
             </p>
           </div>
         </ContentBlock>
 
-        {/* 6. イベント紹介 */}
+        {/*  イベント紹介 */}
         <ContentBlock
           id="events"
           label="Events"
@@ -97,21 +93,21 @@ export default async function Home() {
           imageFallback="No Image (ID:5)"
           imagePosition="right"
         >
-          <p className="text-base leading-loose opacity-95">
+          <p className="text-[17px] md:text-[17px] leading-loose opacity-95">
             ホールコンサート(発表会)やサウンドカーニバルコンサート(アレンジ曲やオリジナル曲を演奏)などを開催。大人から子どもまでたくさんの生徒さんにご参加いただいています。
           </p>
           <div className="flex items-center gap-3 py-2">
             <div className="h-[1px] flex-grow bg-[#794C57]/20" />
-            <p className="text-sm md:text-base font-bold text-[#794C57] italic">
-              自宅レッスン室にてホームコンサートも
+            <p className="text-[16px] md:text-[16px] font-bold text-[#794C57] italic">
+              自宅レッスン室にて
               <br />
-              行っています♪
+              ホームコンサートも行っています♪
             </p>
             <div className="h-[1px] flex-grow bg-[#794C57]/20" />
           </div>
         </ContentBlock>
 
-        {/* 7. おさんぽコンサート */}
+        {/*  おさんぽコンサート */}
         <ContentBlock
           id="outreach"
           label="Activities"
@@ -121,14 +117,14 @@ export default async function Home() {
           imageFallback="No Image (ID:6)"
           imagePosition="left"
         >
-          <p className="text-base leading-loose opacity-95">
+          <p className="text-[17px] md:text-[17px] leading-loose opacity-95">
             jetヤマハミュージック高松店支部会員有志のグループ「おさんぽ隊」の一員として、幼稚園や小学校、公民館や丸亀町商店街などで演奏。明るく元気な音楽をお届けしています。
             <br />
             コンサートでは、エレクトーン、ピアノはもちろん、ソプラノサックス、テナーサックス、フルート、打楽器、鍵盤ハーモニカ、ハンドベル、オタマトーンなどいろいろな楽器を用いて演奏しています。
             私はエレクトーン、ピアノ、テナーサックス、鍵盤ハーモニカ、オタマトーンを担当。
           </p>
           <div className="mt-10 space-y-6">
-            <p className="text-base md:text-lg font-bold text-[#794C57] flex items-center gap-2">
+            <p className="text-lg md:text-lg font-bold text-[#794C57] flex items-center gap-2">
               活動の様子はInstagramでご覧ください♪
             </p>
             <div>
@@ -136,7 +132,7 @@ export default async function Home() {
                 href="https://www.instagram.com/jet.takamatsu_electone.piano?igsh=MWJmdTA4aWEyMmRubA%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 text-base md:text-xl font-bold text-[#794C57] border-b-2 border-[#794C57]/40 pb-1 hover:pb-2 hover:opacity-70 transition-all group"
+                className="inline-flex items-center gap-3 text-[19px] md:text-[19px] font-bold text-[#794C57] border-b-2 border-[#794C57]/40 pb-1 hover:pb-2 hover:opacity-70 transition-all group"
               >
                 <span className="text-2xl group-hover:scale-110 transition-transform inline-block">
                   📸
@@ -147,7 +143,7 @@ export default async function Home() {
           </div>
         </ContentBlock>
 
-        {/* 8. 料金・コースセクション */}
+        {/*  料金・コースセクション */}
         <section id="courses" className="mt-28 mb-20 scroll-mt-24">
           <Subtitle text="コース・お月謝">
             <div className="max-w-5xl mx-auto px-4 space-y-12">
@@ -243,17 +239,17 @@ export default async function Home() {
                   href="/reservation"
                   className="bg-[#794C57] text-[#ECDCE2] px-10 py-4 rounded-full text-lg tracking-widest shadow-xl hover:bg-[#794C57]/90 transition-all active:scale-95 font-[family-name:var(--font-hina)]"
                 >
-                  無料体験お申し込み
+                  無料体験申し込み
                 </a>
               </div>
             </div>
           </Subtitle>
         </section>
 
-        {/* 9. プロフィール */}
+        {/*  プロフィール */}
         <Profile name="岡本 悦子" qualifications={QUALIFICATIONS} />
 
-        {/* 10. アクセス情報 */}
+        {/*  アクセス情報 */}
         <Access />
 
         <Footer />

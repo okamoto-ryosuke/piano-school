@@ -32,7 +32,7 @@ export default function CourseCard({
   return (
     <div className={`${baseStyle} ${variantStyle}`}>
       <h3 className="text-xl font-bold text-[#794C57] mb-4">{title}</h3>
-      <div className="text-sm text-[#794C57] leading-relaxed font-medium">
+      <div className="text-[16px] md:text-[16px] text-[#794C57] leading-relaxed font-medium">
         {description}
       </div>
 
