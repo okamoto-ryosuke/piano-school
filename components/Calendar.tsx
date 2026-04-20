@@ -158,7 +158,7 @@ export const Calendar = ({
                   className="grid grid-cols-[100px_repeat(7,1fr)] relative"
                 >
                   <div className="relative h-0 pointer-events-none">
-                    <span className="absolute -top-[10px] left-0 w-full text-center text-[13px] md:text-[14px] font-bold text-[#794C57]/80 pr-4">
+                    <span className="absolute -top-[10px] left-0 w-full text-center text-[15px] md:text-[15px] font-bold text-[#794C57]/80 pr-4">
                       {time}
                     </span>
                   </div>
