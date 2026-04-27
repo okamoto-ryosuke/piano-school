@@ -10,7 +10,7 @@ const hinaMincho = Hina_Mincho({
 });
 
 export const metadata: Metadata = {
-  title: "エレクトーン・ピアノ教室 jouer*musique",
+  title: "高松市のエレクトーン・ピアノ教室 jouer*musique",
   description: "ピアノ教室のサイト",
   verification: {
     google: "iIPjYZ2tacvNXxtunswDQkdpwklaGfjzpmflMROW9Z8",
