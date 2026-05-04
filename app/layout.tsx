@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Hina_Mincho } from "next/font/google";
 import "./globals.css";
 
-// ひな明朝の設定。weightは400のみ、variableでCSS変数を定義。
 const hinaMincho = Hina_Mincho({
   weight: "400",
   subsets: ["latin"],
@@ -24,7 +23,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      {/* hinaMincho.variableをクラスに追加し、antialiasedで文字を綺麗に表示 */}
       <body className={`${hinaMincho.variable} antialiased`}>{children}</body>
     </html>
   );

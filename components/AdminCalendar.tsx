@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 
-// HOURS の定義を以下のように書き換えてください
 const HOURS = [
   "14:30",
   "15:00",
@@ -43,7 +42,6 @@ export default function AdminCalendar({
   const initialMonday = getInitialMonday();
   const [currentWeekStart, setCurrentWeekStart] = useState(initialMonday);
 
-  // 制限判定: 今週より前、または「再来週（14日後）」より先には行けない
   const isPrevDisabled = currentWeekStart.getTime() <= initialMonday.getTime();
   const isNextDisabled =
     currentWeekStart.getTime() >=
@@ -58,7 +56,6 @@ export default function AdminCalendar({
   const changeWeek = (offset: number) => {
     if (offset < 0 && isPrevDisabled) return;
     if (offset > 0 && isNextDisabled) return;
-
     const newDate = new Date(currentWeekStart);
     newDate.setDate(newDate.getDate() + offset * 7);
     setCurrentWeekStart(newDate);
@@ -70,6 +67,10 @@ export default function AdminCalendar({
     const d = String(date.getDate()).padStart(2, "0");
     return `${y}-${m}-${d}`;
   };
+
+  // ✅ 追加: ISO形式("T"含む)にも対応して時刻部分だけ取り出す
+  const normalizeTime = (t: string) =>
+    (t.includes("T") ? t.split("T")[1] : t).slice(0, 5);
 
   const handleDelete = async (e: React.MouseEvent, id: number) => {
     e.stopPropagation();
@@ -84,7 +85,6 @@ export default function AdminCalendar({
 
   return (
     <div className="flex flex-col gap-4">
-      {/* ツールバー */}
       <div className="flex justify-between items-center bg-white p-4 rounded-xl border border-[#794C57]/10 shadow-sm">
         <div className="flex items-center gap-4">
           <h2 className="font-bold text-[#794C57] text-lg">
@@ -165,17 +165,12 @@ export default function AdminCalendar({
                     {weekDays.map((date) => {
                       const dateStr = formatDate(date);
                       const activeLesson = lessons.find((l) => {
-                        const lDate = l.lessonDate.split("T")[0];
-                        const lStart = (
-                          l.startTime.includes("T")
-                            ? l.startTime.split("T")[1]
-                            : l.startTime
-                        ).slice(0, 5);
-                        const lEnd = (
-                          l.endTime.includes("T")
-                            ? l.endTime.split("T")[1]
-                            : l.endTime
-                        ).slice(0, 5);
+                        // ✅ 修正: normalizeTimeで統一
+                        const lDate = l.lessonDate.includes("T")
+                          ? l.lessonDate.split("T")[0]
+                          : l.lessonDate;
+                        const lStart = normalizeTime(l.startTime);
+                        const lEnd = normalizeTime(l.endTime);
                         return (
                           lDate === dateStr && time >= lStart && time < lEnd
                         );
@@ -187,11 +182,10 @@ export default function AdminCalendar({
                         (selection.end
                           ? time < selection.end
                           : time === selection.start);
-                      const currentStart = (
-                        activeLesson?.startTime?.includes("T")
-                          ? activeLesson.startTime.split("T")[1]
-                          : activeLesson?.startTime
-                      )?.slice(0, 5);
+
+                      const currentStart = activeLesson
+                        ? normalizeTime(activeLesson.startTime)
+                        : null;
                       const isStart = activeLesson && currentStart === time;
                       const isBooked =
                         activeLesson?.studentName &&
@@ -201,28 +195,29 @@ export default function AdminCalendar({
                         <div
                           key={`${dateStr}-${time}`}
                           onClick={() => onSlotClick(dateStr, time)}
-                          className={`relative border-r border-[#794C57]/5 last:border-r-0 pointer-events-auto transition-colors h-full ${isSelected ? "bg-[#794C57]/10" : "hover:bg-[#794C57]/5"}`}
+                          className={`relative border-r border-[#794C57]/5 last:border-r-0 pointer-events-auto transition-colors h-full ${
+                            isSelected
+                              ? "bg-[#794C57]/10"
+                              : "hover:bg-[#794C57]/5"
+                          }`}
                         >
                           {activeLesson && (
                             <div
                               className={`absolute inset-x-1 top-0 bottom-0 px-2 py-1 flex flex-col justify-start overflow-hidden transition-all z-10 shadow-sm
-                              ${isBooked ? "bg-gray-400 text-white" : "bg-[#794C57] text-white"}
-                              ${isStart ? "rounded-t-lg mt-1 pt-2" : ""}
-                              ${
-                                (activeLesson.endTime.includes("T")
-                                  ? activeLesson.endTime.split("T")[1]
-                                  : activeLesson.endTime
-                                ).slice(0, 5) ===
-                                (() => {
-                                  const [h, m] = time.split(":").map(Number);
-                                  const d = new Date();
-                                  d.setHours(h);
-                                  d.setMinutes(m + 30);
-                                  return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
-                                })()
-                                  ? "rounded-b-lg mb-1"
-                                  : ""
-                              }`}
+                                ${isBooked ? "bg-gray-400 text-white" : "bg-[#794C57] text-white"}
+                                ${isStart ? "rounded-t-lg mt-1 pt-2" : ""}
+                                ${
+                                  normalizeTime(activeLesson.endTime) ===
+                                  (() => {
+                                    const [h, m] = time.split(":").map(Number);
+                                    const d = new Date();
+                                    d.setHours(h);
+                                    d.setMinutes(m + 30);
+                                    return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
+                                  })()
+                                    ? "rounded-b-lg mb-1"
+                                    : ""
+                                }`}
                             >
                               {isStart && (
                                 <div className="flex justify-between items-start w-full">
@@ -230,9 +225,10 @@ export default function AdminCalendar({
                                     <span className="font-bold text-[9px] leading-tight">
                                       {isBooked ? "予約済" : "受付中"}
                                     </span>
+                                    {/* ✅ 修正: normalizeTimeで正しく時刻表示 */}
                                     <span className="text-[8px] opacity-70 truncate max-w-[60px]">
                                       {activeLesson.studentName ||
-                                        `${activeLesson.startTime.slice(0, 5)}-${activeLesson.endTime.slice(0, 5)}`}
+                                        `${normalizeTime(activeLesson.startTime)}-${normalizeTime(activeLesson.endTime)}`}
                                     </span>
                                   </div>
                                   <button

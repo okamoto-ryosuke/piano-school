@@ -24,7 +24,6 @@ export const Calendar = ({
   onSlotClick,
   selection,
 }: CalendarProps) => {
-  // 基準となる「今週の月曜日」を計算
   const getInitialMonday = () => {
     const now = new Date();
     const day = now.getDay();
@@ -37,7 +36,6 @@ export const Calendar = ({
   const initialMonday = getInitialMonday();
   const [currentWeekStart, setCurrentWeekStart] = useState(initialMonday);
 
-  // 制限判定: 今週より前、または「再来週（14日後）」より先には行けない
   const isPrevDisabled = currentWeekStart.getTime() <= initialMonday.getTime();
   const isNextDisabled =
     currentWeekStart.getTime() >=
@@ -67,17 +65,25 @@ export const Calendar = ({
   const changeWeek = (offset: number) => {
     if (offset < 0 && isPrevDisabled) return;
     if (offset > 0 && isNextDisabled) return;
-
     const newDate = new Date(currentWeekStart);
     newDate.setDate(newDate.getDate() + offset * 7);
     setCurrentWeekStart(newDate);
   };
 
-  const formatDate = (date: Date) => date.toISOString().split("T")[0];
+  // ✅ 修正: toISOString()をやめてローカル時間で整形
+  const formatDate = (date: Date) => {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, "0");
+    const d = String(date.getDate()).padStart(2, "0");
+    return `${y}-${m}-${d}`;
+  };
+
+  // ✅ 修正: ISO形式("T"含む)にも対応して時刻部分だけ取り出す
+  const normalizeTime = (t: string) =>
+    (t.includes("T") ? t.split("T")[1] : t).slice(0, 5);
 
   return (
     <div className="flex flex-col gap-4">
-      {/* ナビゲーション */}
       <div className="flex justify-end items-center gap-4 px-4 pt-2">
         <span className="text-base md:text-lg font-bold text-[#794C57] tracking-widest">
           {currentWeekStart.getFullYear()}年 {currentWeekStart.getMonth() + 1}月
@@ -166,12 +172,18 @@ export const Calendar = ({
                   {!isLast &&
                     weekDays.map((date) => {
                       const dateStr = formatDate(date);
-                      const activeLesson = lessons.find(
-                        (l) =>
-                          l.lessonDate === dateStr &&
-                          time >= l.startTime &&
-                          time < l.endTime,
-                      );
+                      const activeLesson = lessons.find((l) => {
+                        // ✅ 修正: lessonDateもT含む場合に対応
+                        const lDate = l.lessonDate.includes("T")
+                          ? l.lessonDate.split("T")[0]
+                          : l.lessonDate;
+                        const lStart = normalizeTime(l.startTime);
+                        const lEnd = normalizeTime(l.endTime);
+                        return (
+                          lDate === dateStr && time >= lStart && time < lEnd
+                        );
+                      });
+
                       const isSelected =
                         selection.date === dateStr &&
                         time >= selection.start &&
@@ -184,11 +196,14 @@ export const Calendar = ({
                         activeLesson &&
                         activeLesson.studentName &&
                         activeLesson.studentName !== "";
-                      const isStart = activeLesson?.startTime === time;
+                      const isStart = activeLesson?.startTime
+                        ? normalizeTime(activeLesson.startTime) === time
+                        : false;
                       const isSelectionStart = selection.start === time;
                       const nextTime = HOURS[idx + 1];
                       const isNextBooked =
-                        isBooked && activeLesson.endTime > nextTime;
+                        isBooked &&
+                        normalizeTime(activeLesson.endTime) > nextTime;
                       const isNextSelected =
                         isSelected && selection.end > nextTime;
 
@@ -199,8 +214,8 @@ export const Calendar = ({
                             isAvailable && onSlotClick(dateStr, time)
                           }
                           className={`h-[60px] relative border-t border-[#794C57]/10 border-r border-[#794C57]/5 last:border-r-0
-                          ${isAvailable ? "cursor-pointer hover:bg-[#794C57]/5 bg-white transition-all" : "bg-gray-50/20 cursor-default"}
-                          ${isSelected ? "bg-[#794C57]/15" : ""}`}
+                            ${isAvailable ? "cursor-pointer hover:bg-[#794C57]/5 bg-white transition-all" : "bg-gray-50/20 cursor-default"}
+                            ${isSelected ? "bg-[#794C57]/15" : ""}`}
                         >
                           {isAvailable && !isSelected && (
                             <div className="absolute inset-0 flex items-center justify-center text-[#794C57] opacity-30">
@@ -210,8 +225,8 @@ export const Calendar = ({
                           {isBooked && (
                             <div
                               className={`absolute inset-x-1 bg-[#794C57]/90 text-white px-2 flex flex-col justify-center shadow-sm z-10
-                            ${isStart ? "top-1 rounded-t-md mt-1" : "top-0"}
-                            ${isNextBooked ? "bottom-0" : "bottom-1 rounded-b-md mb-1"}`}
+                                ${isStart ? "top-1 rounded-t-md mt-1" : "top-0"}
+                                ${isNextBooked ? "bottom-0" : "bottom-1 rounded-b-md mb-1"}`}
                               style={{
                                 height: isNextBooked
                                   ? "calc(100% + 1px)"
@@ -228,8 +243,8 @@ export const Calendar = ({
                           {isSelected && (
                             <div
                               className={`absolute inset-x-1 bg-[#794C57] text-white px-2 flex flex-col justify-center shadow-md z-20 animate-in fade-in zoom-in-95
-                            ${isSelectionStart ? "top-1 rounded-t-md mt-1" : "top-0"}
-                            ${isNextSelected ? "bottom-0" : "bottom-1 rounded-b-md mb-1"}`}
+                                ${isSelectionStart ? "top-1 rounded-t-md mt-1" : "top-0"}
+                                ${isNextSelected ? "bottom-0" : "bottom-1 rounded-b-md mb-1"}`}
                               style={{
                                 height: isNextSelected
                                   ? "calc(100% + 1px)"
