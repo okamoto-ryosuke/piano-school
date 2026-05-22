@@ -78,7 +78,7 @@ export default async function Footer() {
 
             <div className="pt-2">
               <a
-                href="https://www.instagram.com/jet.takamatsu_electone.piano?igsh=MWJmdTA4aWEyMmRubA%3D%3D&utm_source=qr"
+                href="https://www.instagram.com/el_etsuko_pf?igsh=MTltYzVnOXUwaDdzMg%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 hover:opacity-70 transition-opacity group"

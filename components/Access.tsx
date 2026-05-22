@@ -14,7 +14,7 @@ export default function AccessSection() {
             <p className="text-[20px] md:text-[20px] font-medium">
               香川県高松市西町
               <br />
-              亀岡小学校、新番長小学校、紫雲中学校区
+              亀阜小学校、新番丁小学校、紫雲中学校区
             </p>
             <div className="bg-white/20 p-6 rounded-2xl border border-white/10 max-w-2xl mx-auto">
               <p className="text-[16px] md:text-[16px] opacity-80 leading-relaxed">

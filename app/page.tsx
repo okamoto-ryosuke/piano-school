@@ -94,7 +94,7 @@ export default async function Home() {
           imagePosition="right"
         >
           <p className="text-[17px] md:text-[17px] leading-loose opacity-95">
-            ホールコンサート(発表会)やサウンドカーニバルコンサート(アレンジ曲やオリジナル曲を演奏)などを開催。大人から子どもまでたくさんの生徒さんにご参加いただいています。
+            ホールコンサート(発表会)やサウンドカーニバルコンサート(アレンジ曲やオリジナル曲を演奏)など、大人から子どもまでたくさんの生徒さんにご参加いただいています。
           </p>
           <div className="flex items-center gap-3 py-2">
             <div className="h-[1px] flex-grow bg-[#794C57]/20" />
@@ -129,7 +129,7 @@ export default async function Home() {
             </p>
             <div>
               <a
-                href="https://www.instagram.com/jet.takamatsu_electone.piano?igsh=MWJmdTA4aWEyMmRubA%3D%3D&utm_source=qr"
+                href="https://www.instagram.com/el_etsuko_pf?igsh=MTltYzVnOXUwaDdzMg%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 text-[19px] md:text-[19px] font-bold text-[#794C57] border-b-2 border-[#794C57]/40 pb-1 hover:pb-2 hover:opacity-70 transition-all group"
