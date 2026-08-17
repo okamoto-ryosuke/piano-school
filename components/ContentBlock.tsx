@@ -39,10 +39,10 @@ export default function ContentBlock({
   const rowDirection = isImageRight ? "md:flex-row-reverse" : "md:flex-row";
 
   return (
-    <section id={id} className="mt-32 mb-24 scroll-mt-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id={id} className="mt-16 mb-16 md:mt-32 md:mb-24 scroll-mt-24">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div
-          className={`flex flex-col ${rowDirection} items-center gap-12 md:gap-16`}
+          className={`flex flex-col ${rowDirection} items-center gap-8 md:gap-16`}
         >
           <BlockImage
             src={imageUrl}
@@ -52,16 +52,16 @@ export default function ContentBlock({
           />
 
           <div
-            className={`w-full md:w-1/2 text-[#794C57] space-y-8 ${textPadding}`}
+            className={`w-full md:w-1/2 text-[#794C57] space-y-5 md:space-y-8 ${textPadding}`}
           >
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               <Label label={label} />
-              <h2 className="text-[26px] md:text-[26px] font-bold font-[family-name:var(--font-hina)] leading-tight text-[#794C57]">
+              <h2 className="text-[20px] md:text-[26px] font-bold font-[family-name:var(--font-hina)] leading-tight text-[#794C57]">
                 {title}
               </h2>
             </div>
 
-            <div className="pt-6 border-t border-[#794C57]/20 space-y-6">
+            <div className="pt-4 md:pt-6 border-t border-[#794C57]/20 space-y-4 md:space-y-6">
               {children}
             </div>
           </div>

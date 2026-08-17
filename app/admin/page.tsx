@@ -80,14 +80,14 @@ export default function AdminPage() {
 
   return (
     <div className="min-h-screen bg-[#fdfaf8] font-[family-name:var(--font-hina)]">
-      <div className="max-w-7xl mx-auto p-4 md:p-8">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+      <div className="max-w-7xl mx-auto p-3 md:p-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-5 md:mb-8 gap-3 md:gap-4">
           <div>
-            <h1 className="text-3xl text-[#794C57] tracking-[0.2em] font-bold">
+            <h1 className="text-xl md:text-3xl text-[#794C57] tracking-[0.1em] md:tracking-[0.2em] font-bold">
               予約可能枠の設定
             </h1>
             {/* ✅ stepが不要になったので説明文を1本化 */}
-            <p className="text-sm text-[#794C57]/60 mt-2">
+            <p className="text-xs md:text-sm text-[#794C57]/60 mt-1.5 md:mt-2">
               {loading
                 ? "データを読み込んでいます..."
                 : "カレンダーをタップすると30分枠が即登録されます。"}
@@ -97,7 +97,7 @@ export default function AdminPage() {
             <button
               onClick={fetchLessons}
               disabled={loading}
-              className="text-xs border border-[#794C57]/20 px-4 py-2 rounded-full text-[#794C57] hover:bg-[#794C57]/5 transition-colors disabled:opacity-50"
+              className="text-[11px] md:text-xs border border-[#794C57]/20 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-[#794C57] hover:bg-[#794C57]/5 transition-colors disabled:opacity-50"
             >
               表示を更新 ↻
             </button>
@@ -114,11 +114,11 @@ export default function AdminPage() {
           />
         </div>
 
-        <div className="mt-6 p-4 bg-[#794C57]/5 rounded-xl border border-[#794C57]/10">
-          <h3 className="text-[#794C57] text-sm font-bold mb-1">
+        <div className="mt-4 md:mt-6 p-3 md:p-4 bg-[#794C57]/5 rounded-xl border border-[#794C57]/10">
+          <h3 className="text-[#794C57] text-xs md:text-sm font-bold mb-1">
             使い方ガイド
           </h3>
-          <ul className="text-[#794C57]/70 text-xs list-disc list-inside space-y-1">
+          <ul className="text-[#794C57]/70 text-[11px] md:text-xs list-disc list-inside space-y-1">
             <li>
               カレンダーの空いている場所をタップすると30分枠が即登録されます。
             </li>

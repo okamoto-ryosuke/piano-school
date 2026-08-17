@@ -14,7 +14,7 @@ export default function Button({ href, children }: Props) {
   return (
     <Link
       href={href}
-      className="inline-block bg-[#794C57] text-[#ECDCE2] px-8 py-3 rounded-full shadow-md hover:bg-[#794C57]/90 transition-all tracking-[0.15em] font-medium"
+      className="inline-block bg-[#794C57] text-[#ECDCE2] px-6 py-2.5 md:px-8 md:py-3 rounded-full shadow-md hover:bg-[#794C57]/90 transition-all tracking-[0.1em] md:tracking-[0.15em] text-sm md:text-base font-medium"
     >
       {children}
     </Link>

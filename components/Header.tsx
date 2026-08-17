@@ -4,6 +4,7 @@ import React from "react";
  * 背景のない、完全に透過したヘッダーコンポーネント
  * * 修正ポイント:
  * 1. 予約ボタンのリンク先を /calendar から /reservation に変更しました。
+ * 2. スマホ表示向けにロゴ・ボタンのサイズを調整しました。
  */
 export default function Header() {
   return (
@@ -12,12 +13,12 @@ export default function Header() {
         {/* 左側：教室名 */}
         <a href="/" className="group flex flex-col items-start">
           {/* サブタイトル：少し小さく、上の余白を調整 */}
-          <span className="text-[20px] md:text-[20px] font-bold text-[#794C57]/80 tracking-[0.3em] mb-[-4px] md:mb-[-8px] ml-1 font-[family-name:var(--font-hina)]">
+          <span className="text-[12px] md:text-[20px] font-bold text-[#794C57]/80 tracking-[0.15em] md:tracking-[0.3em] mb-[-2px] md:mb-[-8px] ml-1 font-[family-name:var(--font-hina)]">
             jouer*musique
           </span>
 
           {/* メインの教室名 */}
-          <h1 className="text-[24px] md:text-[28px] font-normal text-[#794C57] tracking-[0.2em] transition-opacity group-hover:opacity-70 drop-shadow-md font-[family-name:var(--font-hina)]">
+          <h1 className="text-[15px] md:text-[28px] font-normal text-[#794C57] tracking-[0.1em] md:tracking-[0.2em] transition-opacity group-hover:opacity-70 drop-shadow-md font-[family-name:var(--font-hina)]">
             エレクトーン・ピアノ教室
           </h1>
         </a>
@@ -40,7 +41,7 @@ export default function Header() {
           {/* 予約ボタン: リンク先を /reservation に変更 */}
           <a
             href="/reservation"
-            className="bg-[#794C57] text-[#ECDCE2] px-6 py-2.5 md:px-8 md:py-3 rounded-full text-sm md:text-lg tracking-widest shadow-lg hover:bg-[#794C57]/90 transition-all active:scale-95 font-[family-name:var(--font-hina)]"
+            className="bg-[#794C57] text-[#ECDCE2] px-4 py-2 md:px-8 md:py-3 rounded-full text-xs md:text-lg tracking-wider md:tracking-widest shadow-lg hover:bg-[#794C57]/90 transition-all active:scale-95 font-[family-name:var(--font-hina)] whitespace-nowrap"
           >
             無料体験申し込み
           </a>

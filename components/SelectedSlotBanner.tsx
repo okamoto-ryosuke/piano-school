@@ -18,19 +18,19 @@ export default function SelectedSlotBanner({
   // 日付が未選択なら何も表示しない
   if (!start)
     return (
-      <div className="text-sm opacity-40 border-2 border-dashed rounded-2xl italic px-8 py-4 border-brand-muted text-brand text-center">
+      <div className="text-xs md:text-sm opacity-40 border-2 border-dashed rounded-2xl italic px-5 py-3 md:px-8 md:py-4 border-brand-muted text-brand text-center">
         カレンダーから枠を選択してください
       </div>
     );
 
   return (
-    <div className="h-24 flex items-center justify-center mb-4">
-      <div className="bg-brand text-white px-8 py-4 rounded-full inline-flex items-center gap-4 shadow-lg animate-in fade-in zoom-in-95 duration-300">
+    <div className="min-h-24 flex items-center justify-center mb-4 px-4">
+      <div className="bg-brand text-white px-5 py-3 md:px-8 md:py-4 rounded-2xl md:rounded-full inline-flex items-center gap-3 md:gap-4 shadow-lg animate-in fade-in zoom-in-95 duration-300 flex-wrap justify-center">
         <div className="flex flex-col items-start leading-none">
-          <span className="text-[10px] opacity-70 mb-1 uppercase tracking-wider font-bold">
+          <span className="text-[9px] md:text-[10px] opacity-70 mb-1 uppercase tracking-wider font-bold">
             選択中の日時
           </span>
-          <span className="text-lg font-bold">
+          <span className="text-sm md:text-lg font-bold">
             {date} (
             {new Date(date).toLocaleDateString("ja-JP", { weekday: "short" })})
             <span className="ml-2 font-mono">
@@ -47,8 +47,9 @@ export default function SelectedSlotBanner({
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="16"
+            height="16"
+            className="md:w-5 md:h-5"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"

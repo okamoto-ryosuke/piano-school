@@ -60,7 +60,7 @@ export default async function Home() {
           imageFallback="No Image (ID:4)"
           imagePosition="left"
         >
-          <p className="text-[17px] md:text-[17px] font-normal leading-loose opacity-95">
+          <p className="text-[15px] md:text-[17px] font-normal leading-loose opacity-95">
             経験の有無、レベルや目標に合わせて
             <br />
             ご提案しています。
@@ -69,8 +69,8 @@ export default async function Home() {
             <br className="hidden md:block" />
             「合唱の伴奏がしたい」など大歓迎です♪
           </p>
-          <div className="bg-white/30 p-5 rounded-2xl border border-white/20">
-            <p className="text-[17px] md:text-[17px] leading-loose opacity-95 text-center">
+          <div className="bg-white/30 p-4 md:p-5 rounded-2xl border border-white/20">
+            <p className="text-[15px] md:text-[17px] leading-loose opacity-95 text-center">
               はじめてのお子さまはjetの教材
               <span className="font-bold text-[#794C57]">
                 <br />
@@ -93,12 +93,12 @@ export default async function Home() {
           imageFallback="No Image (ID:5)"
           imagePosition="right"
         >
-          <p className="text-[17px] md:text-[17px] leading-loose opacity-95">
+          <p className="text-[15px] md:text-[17px] leading-loose opacity-95">
             ホールコンサート(発表会)やサウンドカーニバルコンサート(アレンジ曲やオリジナル曲を演奏)など、大人から子どもまでたくさんの生徒さんにご参加いただいています。
           </p>
           <div className="flex items-center gap-3 py-2">
             <div className="h-[1px] flex-grow bg-[#794C57]/20" />
-            <p className="text-[16px] md:text-[16px] font-bold text-[#794C57] italic">
+            <p className="text-[13px] md:text-[16px] font-bold text-[#794C57] italic">
               自宅レッスン室にて
               <br />
               ホームコンサートも行っています♪
@@ -117,14 +117,14 @@ export default async function Home() {
           imageFallback="No Image (ID:6)"
           imagePosition="left"
         >
-          <p className="text-[17px] md:text-[17px] leading-loose opacity-95">
+          <p className="text-[15px] md:text-[17px] leading-loose opacity-95">
             jetヤマハミュージック高松店支部会員有志のグループ「おさんぽ隊」の一員として、幼稚園や小学校、公民館や丸亀町商店街などで演奏。明るく元気な音楽をお届けしています。
             <br />
             コンサートでは、エレクトーン、ピアノはもちろん、ソプラノサックス、テナーサックス、フルート、打楽器、鍵盤ハーモニカ、ハンドベル、オタマトーンなどいろいろな楽器を用いて演奏しています。
             私はエレクトーン、ピアノ、テナーサックス、鍵盤ハーモニカ、オタマトーンを担当。
           </p>
-          <div className="mt-10 space-y-6">
-            <p className="text-lg md:text-lg font-bold text-[#794C57] flex items-center gap-2">
+          <div className="mt-6 md:mt-10 space-y-4 md:space-y-6">
+            <p className="text-base md:text-lg font-bold text-[#794C57] flex items-center gap-2">
               活動の様子はInstagramでご覧ください♪
             </p>
             <div>
@@ -132,9 +132,9 @@ export default async function Home() {
                 href="https://www.instagram.com/el_etsuko_pf?igsh=MTltYzVnOXUwaDdzMg%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 text-[19px] md:text-[19px] font-bold text-[#794C57] border-b-2 border-[#794C57]/40 pb-1 hover:pb-2 hover:opacity-70 transition-all group"
+                className="inline-flex items-center gap-3 text-[16px] md:text-[19px] font-bold text-[#794C57] border-b-2 border-[#794C57]/40 pb-1 hover:pb-2 hover:opacity-70 transition-all group"
               >
-                <span className="text-2xl group-hover:scale-110 transition-transform inline-block">
+                <span className="text-xl md:text-2xl group-hover:scale-110 transition-transform inline-block">
                   📸
                 </span>
                 演奏依頼はこちらまで
@@ -144,35 +144,35 @@ export default async function Home() {
         </ContentBlock>
 
         {/*  料金・コースセクション */}
-        <section id="courses" className="mt-28 mb-20 scroll-mt-24">
+        <section id="courses" className="mt-16 mb-12 md:mt-28 md:mb-20 scroll-mt-24">
           <Subtitle text="コース・お月謝">
-            <div className="max-w-5xl mx-auto px-4 space-y-12">
+            <div className="max-w-5xl mx-auto px-2 md:px-4 space-y-8 md:space-y-12">
               {/* 入会金・体験レッスン */}
-              <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-8 text-center">
-                <div className="bg-white/60 border-2 border-[#794C57]/20 px-8 py-4 rounded-2xl shadow-sm">
-                  <p className="text-[#794C57] text-sm font-bold opacity-70">
+              <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-8 text-center">
+                <div className="bg-white/60 border-2 border-[#794C57]/20 px-6 py-3 md:px-8 md:py-4 rounded-2xl shadow-sm">
+                  <p className="text-[#794C57] text-xs md:text-sm font-bold opacity-70">
                     Admission
                   </p>
-                  <p className="text-[#794C57] text-xl md:text-2xl font-bold">
+                  <p className="text-[#794C57] text-lg md:text-2xl font-bold">
                     入会金なし
                   </p>
                 </div>
-                <div className="bg-[#794C57] px-8 py-4 rounded-2xl shadow-md">
-                  <p className="text-white/70 text-sm font-bold tracking-widest">
+                <div className="bg-[#794C57] px-6 py-3 md:px-8 md:py-4 rounded-2xl shadow-md">
+                  <p className="text-white/70 text-xs md:text-sm font-bold tracking-widest">
                     Trial Lesson
                   </p>
-                  <p className="text-white text-xl md:text-2xl font-bold">
+                  <p className="text-white text-lg md:text-2xl font-bold">
                     体験レッスン無料
                   </p>
                 </div>
               </div>
 
               {/* コース一覧 */}
-              <div className="flex flex-wrap justify-center gap-3 md:gap-6">
+              <div className="flex flex-wrap justify-center gap-2 md:gap-6">
                 {COURSES.map(({ label }) => (
                   <div
                     key={label}
-                    className="bg-white/40 px-6 py-2.5 rounded-full border border-[#794C57]/10 text-[#794C57] font-bold"
+                    className="bg-white/40 px-4 py-2 md:px-6 md:py-2.5 rounded-full border border-[#794C57]/10 text-[#794C57] font-bold text-sm md:text-base"
                   >
                     {label}
                   </div>
@@ -180,7 +180,7 @@ export default async function Home() {
               </div>
 
               {/* 料金カード */}
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid md:grid-cols-3 gap-4 md:gap-6">
                 <CourseCard
                   highlighted
                   title={
@@ -234,10 +234,10 @@ export default async function Home() {
               </div>
 
               {/* CTA */}
-              <div className="flex justify-center mt-12">
+              <div className="flex justify-center mt-8 md:mt-12">
                 <a
                   href="/reservation"
-                  className="bg-[#794C57] text-[#ECDCE2] px-10 py-4 rounded-full text-lg tracking-widest shadow-xl hover:bg-[#794C57]/90 transition-all active:scale-95 font-[family-name:var(--font-hina)]"
+                  className="bg-[#794C57] text-[#ECDCE2] px-7 py-3 md:px-10 md:py-4 rounded-full text-sm md:text-lg tracking-wider md:tracking-widest shadow-xl hover:bg-[#794C57]/90 transition-all active:scale-95 font-[family-name:var(--font-hina)]"
                 >
                   無料体験申し込み
                 </a>

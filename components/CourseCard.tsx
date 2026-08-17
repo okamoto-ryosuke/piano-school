@@ -24,24 +24,29 @@ export default function CourseCard({
   priceInfo,
   highlighted = false,
 }: Props) {
-  const baseStyle = "flex flex-col p-8 rounded-[2.5rem] border group";
+  const baseStyle =
+    "flex flex-col p-6 md:p-8 rounded-[1.75rem] md:rounded-[2.5rem] border group";
   const variantStyle = highlighted
     ? "bg-white/80 border-white shadow-md"
     : "bg-white/50 border-white/40 shadow-sm";
 
   return (
     <div className={`${baseStyle} ${variantStyle}`}>
-      <h3 className="text-xl font-bold text-[#794C57] mb-4">{title}</h3>
-      <div className="text-[16px] md:text-[16px] text-[#794C57] leading-relaxed font-medium">
+      <h3 className="text-lg md:text-xl font-bold text-[#794C57] mb-3 md:mb-4">
+        {title}
+      </h3>
+      <div className="text-[14px] md:text-[16px] text-[#794C57] leading-relaxed font-medium">
         {description}
       </div>
 
-      <div className="mt-auto pt-8">
+      <div className="mt-auto pt-6 md:pt-8">
         {priceInfo.type === "price" ? (
           <PriceFooter duration={priceInfo.duration} price={priceInfo.price} />
         ) : (
-          <div className="bg-[#794C57]/5 p-4 rounded-xl text-center">
-            <p className="text-[#794C57] font-bold">お気軽にご相談ください</p>
+          <div className="bg-[#794C57]/5 p-3 md:p-4 rounded-xl text-center">
+            <p className="text-[#794C57] font-bold text-sm md:text-base">
+              お気軽にご相談ください
+            </p>
           </div>
         )}
       </div>

@@ -53,25 +53,25 @@ export default function ReservationPage() {
 
   return (
     <div
-      className="pb-24 min-h-screen"
+      className="pb-16 md:pb-24 min-h-screen"
       style={{ backgroundColor: "var(--bg-main)" }}
     >
       <Header />
 
-      <main className="max-w-5xl mx-auto px-4 py-12">
+      <main className="max-w-5xl mx-auto px-4 py-8 md:py-12">
         <Subtitle text="体験レッスン予約">
-          <div className="mt-8 space-y-12">
+          <div className="mt-6 md:mt-8 space-y-8 md:space-y-12">
             <div className="text-center">
-              <div className="grid md:grid-cols-2 gap-6 mb-16">
+              <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-10 md:mb-16">
                 {/* 当日の流れ */}
-                <div className="bg-white/50 p-8 rounded-[2rem] border border-brand-muted/30">
-                  <h3 className="text-brand font-bold mb-4 flex items-center gap-2">
-                    <span className="w-6 h-6 bg-brand text-white rounded-full flex items-center justify-center text-xs">
+                <div className="bg-white/50 p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-brand-muted/30">
+                  <h3 className="text-brand text-sm md:text-base font-bold mb-3 md:mb-4 flex items-center gap-2">
+                    <span className="w-5 h-5 md:w-6 md:h-6 bg-brand text-white rounded-full flex items-center justify-center text-[10px] md:text-xs">
                       1
                     </span>
                     当日の流れ
                   </h3>
-                  <ul className="text-[16px] md:text-[16px] space-y-3 text-brand/80 leading-relaxed text-left">
+                  <ul className="text-[13px] md:text-[16px] space-y-2 md:space-y-3 text-brand/80 leading-relaxed text-left">
                     <li>・お約束の時間にお越しください。</li>
                     <li>
                       ・実際にエレクトーンやピアノを弾いたり、レッスンの一部を体験していただきます。
@@ -81,34 +81,34 @@ export default function ReservationPage() {
                 </div>
 
                 {/* 持ち物 */}
-                <div className="bg-white/50 p-8 rounded-[2rem] border border-brand-muted/30">
-                  <h3 className="text-brand font-bold mb-4 flex items-center gap-2">
-                    <span className="w-6 h-6 bg-brand text-white rounded-full flex items-center justify-center text-xs">
+                <div className="bg-white/50 p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-brand-muted/30">
+                  <h3 className="text-brand text-sm md:text-base font-bold mb-3 md:mb-4 flex items-center gap-2">
+                    <span className="w-5 h-5 md:w-6 md:h-6 bg-brand text-white rounded-full flex items-center justify-center text-[10px] md:text-xs">
                       2
                     </span>
                     持ち物
                   </h3>
-                  <div className="text-[16px] md:text-[16px] space-y-4 text-brand/80 leading-relaxed text-left">
+                  <div className="text-[13px] md:text-[16px] space-y-3 md:space-y-4 text-brand/80 leading-relaxed text-left">
                     <p>
                       基本的に持ち物は不要です。
                       <br />
                       手ぶらでお気軽にお越しください。
                     </p>
-                    <p className="text-[16px] md:text-[16px] bg-brand/5 p-3 rounded-xl">
+                    <p className="text-[13px] md:text-[16px] bg-brand/5 p-2.5 md:p-3 rounded-xl">
                       もし「弾きたい曲」の楽譜をお持ちでしたら、ぜひご持参ください♪
                     </p>
                   </div>
                 </div>
               </div>
 
-              <p className="leading-relaxed opacity-80 text-brand font-bold mb-6">
+              <p className="leading-relaxed opacity-80 text-brand font-bold mb-4 md:mb-6 text-sm md:text-base">
                 {isLoading
                   ? "予約状況を読み込んでいます..."
                   : "カレンダーの「○」がついた枠をクリックして予約時間を選択してください"}
               </p>
             </div>
 
-            <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-brand-muted shadow-brand/5">
+            <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl overflow-hidden border border-brand-muted shadow-brand/5">
               <Calendar
                 lessons={lessons}
                 onSlotClick={handleSlotClick}
@@ -120,9 +120,9 @@ export default function ReservationPage() {
               />
             </div>
 
-            <div className="flex justify-center gap-8 text-[14px] font-bold text-brand mt-6">
+            <div className="flex justify-center gap-6 md:gap-8 text-xs md:text-[14px] font-bold text-brand mt-4 md:mt-6">
               <div className="flex items-center gap-2">
-                <span className="w-4 h-4 flex items-center justify-center rounded-full text-[10px] border border-brand-muted bg-brand/5">
+                <span className="w-4 h-4 flex items-center justify-center rounded-full text-[9px] md:text-[10px] border border-brand-muted bg-brand/5">
                   ○
                 </span>
                 <span>予約可能</span>
@@ -135,7 +135,7 @@ export default function ReservationPage() {
 
             <div
               ref={formRef}
-              className={`mt-16 transition-all duration-500 ${!form.startTime ? "opacity-30 grayscale pointer-events-none translate-y-4" : "opacity-100 translate-y-0"}`}
+              className={`mt-10 md:mt-16 transition-all duration-500 ${!form.startTime ? "opacity-30 grayscale pointer-events-none translate-y-4" : "opacity-100 translate-y-0"}`}
             >
               <SelectedSlotBanner
                 date={form.lessonDate}

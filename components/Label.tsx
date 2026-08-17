@@ -8,11 +8,11 @@ type Props = {
  */
 export default function Label({ label }: Props) {
   return (
-    <div className="flex items-center gap-4">
-      <span className="text-xs font-bold tracking-[0.3em] text-[#794C57]/50 uppercase">
+    <div className="flex items-center gap-3 md:gap-4">
+      <span className="text-[10px] md:text-xs font-bold tracking-[0.3em] text-[#794C57]/50 uppercase">
         {label}
       </span>
-      <div className="h-[1px] w-12 bg-[#794C57]/20" />
+      <div className="h-[1px] w-8 md:w-12 bg-[#794C57]/20" />
     </div>
   );
 }

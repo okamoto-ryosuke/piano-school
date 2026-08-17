@@ -84,17 +84,17 @@ export default function AdminCalendar({
   };
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex justify-between items-center bg-white p-4 rounded-xl border border-[#794C57]/10 shadow-sm">
-        <div className="flex items-center gap-4">
-          <h2 className="font-bold text-[#794C57] text-lg">
+    <div className="flex flex-col gap-3 md:gap-4">
+      <div className="flex flex-wrap justify-between items-center gap-3 bg-white p-3 md:p-4 rounded-xl border border-[#794C57]/10 shadow-sm">
+        <div className="flex items-center gap-3 md:gap-4">
+          <h2 className="font-bold text-[#794C57] text-sm md:text-lg">
             {currentWeekStart.getFullYear()}年 {currentWeekStart.getMonth() + 1}
             月
           </h2>
           <button
             onClick={() => setCurrentWeekStart(initialMonday)}
             disabled={isPrevDisabled}
-            className={`px-3 py-1 text-xs font-bold border border-[#794C57]/30 rounded-full text-[#794C57] transition-all ${
+            className={`px-2.5 py-1 text-[10px] md:text-xs font-bold border border-[#794C57]/30 rounded-full text-[#794C57] transition-all ${
               isPrevDisabled
                 ? "opacity-30 cursor-default"
                 : "hover:bg-[#794C57]/5"
@@ -107,7 +107,7 @@ export default function AdminCalendar({
           <button
             onClick={() => changeWeek(-1)}
             disabled={isPrevDisabled}
-            className={`px-4 py-2 text-sm font-bold border border-[#794C57]/20 rounded-lg text-[#794C57] transition-all ${
+            className={`px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-bold border border-[#794C57]/20 rounded-lg text-[#794C57] transition-all ${
               isPrevDisabled
                 ? "opacity-20 cursor-not-allowed"
                 : "hover:bg-[#794C57]/5"
@@ -118,7 +118,7 @@ export default function AdminCalendar({
           <button
             onClick={() => changeWeek(1)}
             disabled={isNextDisabled}
-            className={`px-4 py-2 text-sm font-bold border border-[#794C57]/20 rounded-lg text-[#794C57] transition-all ${
+            className={`px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-bold border border-[#794C57]/20 rounded-lg text-[#794C57] transition-all ${
               isNextDisabled
                 ? "opacity-20 cursor-not-allowed"
                 : "hover:bg-[#794C57]/5"
@@ -130,20 +130,20 @@ export default function AdminCalendar({
       </div>
 
       <div className="overflow-x-auto bg-white rounded-xl shadow-sm border border-[#794C57]/10">
-        <div className="min-w-[800px] pb-4">
-          <div className="grid grid-cols-[80px_repeat(7,1fr)] border-b border-[#794C57]/10 bg-[#fdfaf8]/50 text-center font-bold text-[#794C57]">
-            <div className="p-4 border-r border-[#794C57]/10 text-[10px] flex items-center justify-center opacity-40 uppercase tracking-tighter">
+        <div className="min-w-[600px] md:min-w-[800px] pb-4">
+          <div className="grid grid-cols-[56px_repeat(7,1fr)] md:grid-cols-[80px_repeat(7,1fr)] border-b border-[#794C57]/10 bg-[#fdfaf8]/50 text-center font-bold text-[#794C57]">
+            <div className="p-2 md:p-4 border-r border-[#794C57]/10 text-[9px] md:text-[10px] flex items-center justify-center opacity-40 uppercase tracking-tighter">
               Time
             </div>
             {weekDays.map((date) => (
               <div
                 key={date.toString()}
-                className="p-4 border-r border-[#794C57]/10 last:border-r-0"
+                className="p-2 md:p-4 border-r border-[#794C57]/10 last:border-r-0"
               >
-                <div className="text-[10px] opacity-40 mb-1">
+                <div className="text-[9px] md:text-[10px] opacity-40 mb-1">
                   {date.getMonth() + 1}/{date.getDate()}
                 </div>
-                <div className="text-sm">
+                <div className="text-xs md:text-sm">
                   {date.toLocaleDateString("ja-JP", { weekday: "short" })}
                 </div>
               </div>
@@ -153,15 +153,15 @@ export default function AdminCalendar({
           <div className="relative pt-4">
             {HOURS.map((time, idx) => (
               <div key={time} className="relative group">
-                <div className="flex items-center h-[60px]">
-                  <div className="w-[80px] flex justify-center text-[11px] text-[#794C57]/40 font-medium">
+                <div className="flex items-center h-[48px] md:h-[60px]">
+                  <div className="w-[56px] md:w-[80px] flex justify-center text-[9px] md:text-[11px] text-[#794C57]/40 font-medium">
                     {time}
                   </div>
                   <div className="flex-1 border-t border-[#794C57]/5"></div>
                 </div>
 
                 {idx < HOURS.length - 1 && (
-                  <div className="absolute top-[30px] left-[80px] right-0 h-[60px] grid grid-cols-7 pointer-events-none">
+                  <div className="absolute top-[24px] md:top-[30px] left-[56px] md:left-[80px] right-0 h-[48px] md:h-[60px] grid grid-cols-7 pointer-events-none">
                     {weekDays.map((date) => {
                       const dateStr = formatDate(date);
                       const activeLesson = lessons.find((l) => {
@@ -203,7 +203,7 @@ export default function AdminCalendar({
                         >
                           {activeLesson && (
                             <div
-                              className={`absolute inset-x-1 top-0 bottom-0 px-2 py-1 flex flex-col justify-start overflow-hidden transition-all z-10 shadow-sm
+                              className={`absolute inset-x-0.5 md:inset-x-1 top-0 bottom-0 px-1.5 md:px-2 py-1 flex flex-col justify-start overflow-hidden transition-all z-10 shadow-sm
                                 ${isBooked ? "bg-gray-400 text-white" : "bg-[#794C57] text-white"}
                                 ${isStart ? "rounded-t-lg mt-1 pt-2" : ""}
                                 ${
@@ -222,11 +222,11 @@ export default function AdminCalendar({
                               {isStart && (
                                 <div className="flex justify-between items-start w-full">
                                   <div className="flex flex-col">
-                                    <span className="font-bold text-[9px] leading-tight">
+                                    <span className="font-bold text-[8px] md:text-[9px] leading-tight">
                                       {isBooked ? "予約済" : "受付中"}
                                     </span>
                                     {/* ✅ 修正: normalizeTimeで正しく時刻表示 */}
-                                    <span className="text-[8px] opacity-70 truncate max-w-[60px]">
+                                    <span className="text-[7px] md:text-[8px] opacity-70 truncate max-w-[48px] md:max-w-[60px]">
                                       {activeLesson.studentName ||
                                         `${normalizeTime(activeLesson.startTime)}-${normalizeTime(activeLesson.endTime)}`}
                                     </span>
@@ -238,8 +238,9 @@ export default function AdminCalendar({
                                     className="text-white/40 hover:text-white transition-colors p-0.5"
                                   >
                                     <svg
-                                      width="10"
-                                      height="10"
+                                      width="9"
+                                      height="9"
+                                      className="md:w-[10px] md:h-[10px]"
                                       viewBox="0 0 24 24"
                                       fill="none"
                                       stroke="currentColor"

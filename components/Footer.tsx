@@ -21,16 +21,16 @@ export default async function Footer() {
       /* mt-20 は flex-grow があれば不要になるので削除するか調整 */
     "
     >
-      <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-left">
           {/*  ロゴ・コンセプト */}
-          <div className="space-y-4">
-            <h2 className="text-2xl md:text-3xl font-normal tracking-[0.2em] font-[family-name:var(--font-hina)]">
+          <div className="space-y-3 md:space-y-4">
+            <h2 className="text-xl md:text-3xl font-normal tracking-[0.15em] md:tracking-[0.2em] font-[family-name:var(--font-hina)]">
               エレクトーン・
               <br />
               ピアノ教室
             </h2>
-            <p className="text-[16px] md:text-[16px] opacity-90 leading-loose">
+            <p className="text-[14px] md:text-[16px] opacity-90 leading-loose">
               jouer*musique
               <br />
               音で遊ぶ、音楽を奏でる、感性を磨く。
@@ -38,8 +38,8 @@ export default async function Footer() {
           </div>
 
           {/* 2. メニュー */}
-          <nav className="flex flex-col gap-3 text-sm md:pl-10">
-            <p className="font-bold mb-2 opacity-50 uppercase tracking-widest text-xs">
+          <nav className="flex flex-col gap-2.5 md:gap-3 text-sm md:pl-10">
+            <p className="font-bold mb-2 opacity-50 uppercase tracking-widest text-[10px] md:text-xs">
               Menu
             </p>
             <a href="/" className="hover:opacity-70 transition-opacity w-fit">
@@ -66,11 +66,11 @@ export default async function Footer() {
           </nav>
 
           {/* 3. 情報・SNS */}
-          <div className="space-y-4 text-sm">
-            <p className="font-bold mb-2 opacity-50 uppercase tracking-widest text-xs">
+          <div className="space-y-3 md:space-y-4 text-sm">
+            <p className="font-bold mb-2 opacity-50 uppercase tracking-widest text-[10px] md:text-xs">
               Information
             </p>
-            <p className="leading-loose opacity-80 text-[#ECDCE2]/80">
+            <p className="leading-loose opacity-80 text-[#ECDCE2]/80 text-[13px] md:text-sm">
               香川県高松市西町（詳細はご予約後にお伝えします）
               <br />
               🅿️ 駐車場あり / 🚲 駐輪スペースあり
@@ -88,12 +88,12 @@ export default async function Footer() {
                   <img
                     src={instagramIcon.url}
                     alt="Instagram"
-                    className="w-6 h-6 md:w-7 md:h-7 object-contain group-hover:scale-110 transition-transform"
+                    className="w-5 h-5 md:w-7 md:h-7 object-contain group-hover:scale-110 transition-transform"
                   />
                 ) : (
-                  <span className="text-xl">📸</span>
+                  <span className="text-lg md:text-xl">📸</span>
                 )}
-                <span className="border-b border-transparent hover:border-[#ECDCE2]/40">
+                <span className="border-b border-transparent hover:border-[#ECDCE2]/40 text-[13px] md:text-sm">
                   Instagram
                 </span>
               </a>
@@ -102,7 +102,7 @@ export default async function Footer() {
         </div>
 
         {/* コピーライト */}
-        <div className="border-t border-[#ECDCE2]/10 mt-12 pt-8 text-center text-[10px] opacity-40 uppercase tracking-[0.3em]">
+        <div className="border-t border-[#ECDCE2]/10 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-[9px] md:text-[10px] opacity-40 uppercase tracking-[0.2em] md:tracking-[0.3em]">
           © 2026 jouer*musique. all rights reserved.
         </div>
       </div>

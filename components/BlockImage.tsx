@@ -17,19 +17,19 @@ export default function BlockImage({
 }: Props) {
   const decorationPosition =
     decorationSide === "left"
-      ? "top-4 left-4 group-hover:translate-x-1 group-hover:translate-y-1"
-      : "top-4 right-4 group-hover:-translate-x-1 group-hover:translate-y-1";
+      ? "top-3 left-3 md:top-4 md:left-4 group-hover:translate-x-1 group-hover:translate-y-1"
+      : "top-3 right-3 md:top-4 md:right-4 group-hover:-translate-x-1 group-hover:translate-y-1";
 
   return (
     <div className="w-full md:w-1/2">
       <div className="relative group">
         {/* 奥行きを演出する装飾レイヤー */}
         <div
-          className={`absolute ${decorationPosition} w-full h-full bg-[#794C57]/5 rounded-[2rem] -z-10 transition-transform`}
+          className={`absolute ${decorationPosition} w-full h-full bg-[#794C57]/5 rounded-[1.5rem] md:rounded-[2rem] -z-10 transition-transform`}
         />
 
         {src ? (
-          <div className="overflow-hidden rounded-[2rem] shadow-xl border border-white/20">
+          <div className="overflow-hidden rounded-[1.5rem] md:rounded-[2rem] shadow-xl border border-white/20">
             <img
               src={src}
               alt={alt}
@@ -37,7 +37,7 @@ export default function BlockImage({
             />
           </div>
         ) : (
-          <div className="aspect-video w-full bg-white/30 rounded-[2rem] flex items-center justify-center text-[#794C57]/40 border border-white/20">
+          <div className="aspect-video w-full bg-white/30 rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center text-sm md:text-base text-[#794C57]/40 border border-white/20">
             {fallbackLabel}
           </div>
         )}

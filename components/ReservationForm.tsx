@@ -84,20 +84,19 @@ export default function ReservationForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-xl mx-auto bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-brand-muted font-[family-name:var(--font-hina)]"
+      className="max-w-xl mx-auto bg-white p-6 md:p-12 rounded-[1.75rem] md:rounded-[2.5rem] shadow-2xl border border-brand-muted font-[family-name:var(--font-hina)]"
     >
-      {/* 見出し: text-xl (20px) -> text-2xl (24px) */}
-      <h3 className="text-2xl font-bold mb-10 text-center tracking-widest text-brand">
+      {/* 見出し */}
+      <h3 className="text-xl md:text-2xl font-bold mb-6 md:mb-10 text-center tracking-wider md:tracking-widest text-brand">
         お客様情報
       </h3>
 
-      <div className="space-y-8">
+      <div className="space-y-6 md:space-y-8">
         {" "}
         {/* 全体の間隔を少し広げてゆとりを */}
         {/* 各入力ブロック */}
-        <div className="space-y-3">
-          {/* ラベル: text-[10px] -> text-[14px] にアップ */}
-          <label className="text-[14px] font-bold uppercase tracking-[0.15em] px-1 opacity-80 text-brand">
+        <div className="space-y-2 md:space-y-3">
+          <label className="text-xs md:text-[14px] font-bold uppercase tracking-[0.1em] md:tracking-[0.15em] px-1 opacity-80 text-brand">
             お名前
           </label>
           <input
@@ -105,15 +104,15 @@ export default function ReservationForm({
             required
             placeholder="山田 太郎"
             style={{ backgroundColor: "var(--bg-card)" }}
-            className="w-full p-4 rounded-xl border border-brand-muted focus:bg-white focus:border-brand outline-none transition-all text-base"
+            className="w-full p-3 md:p-4 rounded-xl border border-brand-muted focus:bg-white focus:border-brand outline-none transition-all text-sm md:text-base"
             value={userDetails.name}
             onChange={(e) =>
               setUserDetails({ ...userDetails, name: e.target.value })
             }
           />
         </div>
-        <div className="space-y-3">
-          <label className="text-[14px] font-bold uppercase tracking-[0.15em] px-1 opacity-80 text-brand">
+        <div className="space-y-2 md:space-y-3">
+          <label className="text-xs md:text-[14px] font-bold uppercase tracking-[0.1em] md:tracking-[0.15em] px-1 opacity-80 text-brand">
             電話番号
           </label>
           <input
@@ -121,15 +120,15 @@ export default function ReservationForm({
             required
             placeholder="09012345678"
             style={{ backgroundColor: "var(--bg-card)" }}
-            className="w-full p-4 rounded-xl border border-brand-muted focus:bg-white focus:border-brand outline-none transition-all"
+            className="w-full p-3 md:p-4 rounded-xl border border-brand-muted focus:bg-white focus:border-brand outline-none transition-all text-sm md:text-base"
             value={userDetails.phone}
             onChange={(e) =>
               setUserDetails({ ...userDetails, phone: e.target.value })
             }
           />
         </div>
-        <div className="space-y-3">
-          <label className="text-[14px] font-bold uppercase tracking-[0.15em] px-1 opacity-80 text-brand">
+        <div className="space-y-2 md:space-y-3">
+          <label className="text-xs md:text-[14px] font-bold uppercase tracking-[0.1em] md:tracking-[0.15em] px-1 opacity-80 text-brand">
             メールアドレス
           </label>
           <input
@@ -137,18 +136,18 @@ export default function ReservationForm({
             required
             placeholder="example@mail.com"
             style={{ backgroundColor: "var(--bg-card)" }}
-            className="w-full p-4 rounded-xl border border-brand-muted focus:bg-white focus:border-brand outline-none transition-all"
+            className="w-full p-3 md:p-4 rounded-xl border border-brand-muted focus:bg-white focus:border-brand outline-none transition-all text-sm md:text-base"
             value={userDetails.email}
             onChange={(e) =>
               setUserDetails({ ...userDetails, email: e.target.value })
             }
           />
         </div>
-        <div className="space-y-5 pt-4">
-          <label className="text-[14px] font-bold uppercase tracking-[0.15em] px-1 opacity-80 text-brand">
+        <div className="space-y-3 md:space-y-5 pt-3 md:pt-4">
+          <label className="text-xs md:text-[14px] font-bold uppercase tracking-[0.1em] md:tracking-[0.15em] px-1 opacity-80 text-brand">
             折り返し電話の希望時間
           </label>
-          <div className="flex flex-wrap gap-2.5 mb-3">
+          <div className="flex flex-wrap gap-2 md:gap-2.5 mb-3">
             {TIME_OPTIONS.map((option) => (
               <button
                 key={option}
@@ -156,7 +155,7 @@ export default function ReservationForm({
                 onClick={() =>
                   setUserDetails({ ...userDetails, preferredTime: option })
                 }
-                className={`px-4 py-2 rounded-full text-[14px] font-bold transition-all border ${
+                className={`px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-[14px] font-bold transition-all border ${
                   userDetails.preferredTime === option
                     ? "bg-brand text-white border-brand shadow-md"
                     : "bg-white text-brand border-brand/20 hover:border-brand/50"
@@ -171,7 +170,7 @@ export default function ReservationForm({
             required
             placeholder="または自由に入力してください"
             style={{ backgroundColor: "var(--bg-card)" }}
-            className="w-full p-4 rounded-xl border border-brand-muted focus:bg-white focus:border-brand outline-none transition-all"
+            className="w-full p-3 md:p-4 rounded-xl border border-brand-muted focus:bg-white focus:border-brand outline-none transition-all text-sm md:text-base"
             value={userDetails.preferredTime}
             onChange={(e) =>
               setUserDetails({ ...userDetails, preferredTime: e.target.value })
@@ -183,7 +182,7 @@ export default function ReservationForm({
       <button
         type="submit"
         disabled={isSubmitting || !selectedLesson.startTime}
-        className="w-full mt-12 py-5 bg-brand text-white rounded-2xl font-bold text-lg shadow-lg hover:brightness-90 disabled:bg-gray-200 transition-all active:scale-[0.98] tracking-widest"
+        className="w-full mt-8 md:mt-12 py-4 md:py-5 bg-brand text-white rounded-2xl font-bold text-base md:text-lg shadow-lg hover:brightness-90 disabled:bg-gray-200 transition-all active:scale-[0.98] tracking-wider md:tracking-widest"
       >
         {isSubmitting ? "送信中..." : "予約を確定する"}
       </button>

@@ -41,7 +41,7 @@ export default function HeroFrame({
   if (!images || images.length === 0) return null;
 
   return (
-    <div className="relative w-full h-[80vh] md:h-screen overflow-hidden p-4 md:p-8 bg-[#ECDCE2]">
+    <div className="relative w-full h-screen overflow-hidden p-2 md:p-8 bg-[#ECDCE2]">
       {/* 1. メインの写真コンテナ */}
       <div className="relative w-full h-full overflow-hidden shadow-inner bg-gray-100 opacity-0 animate-[expand-in_1.5s_ease-out_forwards]">
         <div className="relative w-full h-full overflow-hidden">
@@ -77,7 +77,8 @@ export default function HeroFrame({
       >
         <div className="text-center px-4 opacity-0 animate-[tracking-out_2s_ease-out_1.5s_forwards]">
           <h2 className="text-white text-3xl md:text-5xl drop-shadow-xl font-normal [text-shadow:_0_2px_15px_rgb(0_0_0_/_50%)]">
-            音楽を奏でる、心を育む
+            音楽を奏でる、 <br />
+            心を育む
           </h2>
         </div>
       </div>
